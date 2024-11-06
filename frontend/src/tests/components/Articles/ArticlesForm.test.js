@@ -68,7 +68,6 @@ describe("ArticlesForm tests", () => {
     expect(screen.getByText(/URL is required./)).toBeInTheDocument();
     expect(screen.getByText(/Title is required./)).toBeInTheDocument();
     expect(screen.getByText(/Date must be in ISO format./)).toBeInTheDocument();
-
   });
 
   test("No Error messsages on good input", async () => {
@@ -82,7 +81,6 @@ describe("ArticlesForm tests", () => {
     await screen.findByTestId("ArticlesForm-title");
     const submitButton = screen.getByTestId("ArticlesForm-submit");
 
-
     const titleField = screen.getByTestId("ArticlesForm-title");
     const urlField = screen.getByTestId("ArticlesForm-url");
     const explanationField = screen.getByTestId("ArticlesForm-explanation");
@@ -95,7 +93,9 @@ describe("ArticlesForm tests", () => {
       target: { value: "explanation_testing" },
     });
     fireEvent.change(emailField, { target: { value: "email_testing" } });
-    fireEvent.change(dateAddedField, { target: { value: "2022-01-02T12:00:00" } });
+    fireEvent.change(dateAddedField, {
+      target: { value: "2022-01-02T12:00:00" },
+    });
     fireEvent.click(submitButton);
 
     await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());

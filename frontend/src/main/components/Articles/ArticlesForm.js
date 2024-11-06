@@ -25,7 +25,6 @@ function ArticlesForm({
     /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
   // Stryker restore Regex
 
-
   return (
     <Form onSubmit={handleSubmit(submitAction)}>
       <Row>
@@ -54,7 +53,7 @@ function ArticlesForm({
               type="text"
               isInvalid={Boolean(errors.title)}
               {...register("title", {
-                required: "Title is required."
+                required: "Title is required.",
               })}
             />
             <Form.Control.Feedback type="invalid">
@@ -72,7 +71,7 @@ function ArticlesForm({
               type="text"
               isInvalid={Boolean(errors.url)}
               {...register("url", {
-                required: "URL is required."
+                required: "URL is required.",
               })}
             />
             <Form.Control.Feedback type="invalid">
@@ -90,7 +89,7 @@ function ArticlesForm({
               type="text"
               isInvalid={Boolean(errors.explanation)}
               {...register("explanation", {
-                required: "Explanation is required."
+                required: "Explanation is required.",
               })}
             />
             <Form.Control.Feedback type="invalid">
@@ -108,7 +107,7 @@ function ArticlesForm({
               type="text"
               isInvalid={Boolean(errors.email)}
               {...register("email", {
-                required: "Email is required. "
+                required: "Email is required. ",
               })}
             />
             <Form.Control.Feedback type="invalid">
@@ -127,7 +126,7 @@ function ArticlesForm({
               isInvalid={Boolean(errors.dateAdded)}
               {...register("dateAdded", {
                 required: true,
-                pattern: isodate_regex
+                pattern: isodate_regex,
               })}
             />
             <Form.Control.Feedback type="invalid">
@@ -135,7 +134,6 @@ function ArticlesForm({
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
-
       </Row>
 
       <Row>
