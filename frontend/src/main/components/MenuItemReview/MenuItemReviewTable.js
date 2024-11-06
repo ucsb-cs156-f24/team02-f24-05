@@ -5,7 +5,7 @@ import { useBackendMutation } from "main/utils/useBackend";
 import {
   cellToAxiosParamsDelete,
   onDeleteSuccess,
-} from "main/utils/UCSBDateUtils";
+} from "main/utils/MenuItemReviewUtils";
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
@@ -21,7 +21,7 @@ export default function MenuItemReviewTable({ dates, currentUser }) {
   const deleteMutation = useBackendMutation(
     cellToAxiosParamsDelete,
     { onSuccess: onDeleteSuccess },
-    ["/api/menuItemReview/all"],
+    ["/api/menu_item_review/all"],
   );
   // Stryker restore all
 
@@ -66,7 +66,5 @@ export default function MenuItemReviewTable({ dates, currentUser }) {
     );
   }
 
-  return (
-    <OurTable data={dates} columns={columns} testid={"MenuItemReviewTable"} />
-  );
+  return <OurTable data={dates} columns={columns} testid={"MenuItemReviewTable"} />;
 }
