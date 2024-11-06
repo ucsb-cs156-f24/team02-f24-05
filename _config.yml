@@ -20,4 +20,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-f24/team02-f24-05
 owner: ucsb-cs156-f24
 repo_name: team02-f24-05
-pull_requests: [{"author":{"id":"MDQ6VXNlcjczOTIyMDEz","is_bot":false,"login":"basperheim1","name":""},"headRefName":"articles-fixtures","number":74,"title":"Add Articles Fixtures","url":"https://github.com/ucsb-cs156-f24/team02-f24-05/pull/74"},{"author":{"id":"MDQ6VXNlcjczOTIyMDEz","is_bot":false,"login":"basperheim1","name":""},"headRefName":"articles-backend","number":72,"title":"Add articles table","url":"https://github.com/ucsb-cs156-f24/team02-f24-05/pull/72"},{"author":{"id":"MDQ6VXNlcjI1MjgzOTIx","is_bot":false,"login":"ishanjainofficial","name":"Ishan Jain"},"headRefName":"ishanjain-team02-addFixtures","number":71,"title":"Ishanjain team02 add fixtures","url":"https://github.com/ucsb-cs156-f24/team02-f24-05/pull/71"}]
+pull_requests: [{"author":{"id":"MDQ6VXNlcjI1MjgzOTIx","is_bot":false,"login":"ishanjainofficial","name":"Ishan Jain"},"headRefName":"ishanjain-team02-addFixtures","number":71,"title":"Ishanjain team02 add fixtures","url":"https://github.com/ucsb-cs156-f24/team02-f24-05/pull/71"}]
