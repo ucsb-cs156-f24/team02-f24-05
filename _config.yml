@@ -20,4 +20,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-f24/team02-f24-05
 owner: ucsb-cs156-f24
 repo_name: team02-f24-05
-pull_requests: []
+pull_requests: [{"author":{"id":"MDQ6VXNlcjczOTIyMDEz","is_bot":false,"login":"basperheim1","name":""},"headRefName":"articles-table-component","number":80,"title":"added table component for articles plus tests","url":"https://github.com/ucsb-cs156-f24/team02-f24-05/pull/80"}]
