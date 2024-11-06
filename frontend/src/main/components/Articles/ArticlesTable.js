@@ -48,13 +48,13 @@ export default function ArticlesTable({ articles, currentUser }) {
       accessor: "explanation",
     },
     {
-        Header: "Email",
-        accessor: "email",
-      },
-      {
-        Header: "DateAdded",
-        accessor: "dateAdded",
-      },
+      Header: "Email",
+      accessor: "email",
+    },
+    {
+      Header: "DateAdded",
+      accessor: "dateAdded",
+    },
   ];
 
   if (hasRole(currentUser, "ROLE_ADMIN")) {
@@ -66,5 +66,7 @@ export default function ArticlesTable({ articles, currentUser }) {
     );
   }
 
-  return <OurTable data={articles} columns={columns} testid={"ArticlesTable"} />;
+  return (
+    <OurTable data={articles} columns={columns} testid={"ArticlesTable"} />
+  );
 }

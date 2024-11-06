@@ -28,7 +28,7 @@ ThreeItemsOrdinaryUser.args = {
 
 export const ThreeItemsAdminUser = Template.bind({});
 ThreeItemsAdminUser.args = {
-    articles: articlesFixtures.threeArticles,
+  articles: articlesFixtures.threeArticles,
   currentUser: currentUserFixtures.adminUser,
 };
 
