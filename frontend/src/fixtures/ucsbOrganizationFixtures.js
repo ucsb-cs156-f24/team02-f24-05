@@ -32,7 +32,7 @@ const organizationFixtures = {
       orgTranslationShort: "KOREAN RADIO CL",
       orgTranslation: "KOREAN RADIO CLUB",
       inactive: false,
-    }
+    },
   ],
 };
 
