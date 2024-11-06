@@ -31,8 +31,22 @@ describe("UserTable tests", () => {
       </QueryClientProvider>,
     );
 
-    const expectedHeaders = ["id", "ItemId", "ReviewerEmail", "Date", "Stars", "Comments"];
-    const expectedFields = ["id", "itemId", "reviewerEmail", "dateReviewed", "stars", "comments"];
+    const expectedHeaders = [
+      "id",
+      "ItemId",
+      "ReviewerEmail",
+      "Date",
+      "Stars",
+      "Comments",
+    ];
+    const expectedFields = [
+      "id",
+      "itemId",
+      "reviewerEmail",
+      "dateReviewed",
+      "stars",
+      "comments",
+    ];
     const testId = "MenuItemReviewTable";
 
     expectedHeaders.forEach((headerText) => {
@@ -77,8 +91,22 @@ describe("UserTable tests", () => {
       </QueryClientProvider>,
     );
 
-    const expectedHeaders = ["id", "ItemId", "ReviewerEmail", "Date", "Stars", "Comments"];
-    const expectedFields = ["id", "itemId", "reviewerEmail", "dateReviewed", "stars", "comments"];
+    const expectedHeaders = [
+      "id",
+      "ItemId",
+      "ReviewerEmail",
+      "Date",
+      "Stars",
+      "Comments",
+    ];
+    const expectedFields = [
+      "id",
+      "itemId",
+      "reviewerEmail",
+      "dateReviewed",
+      "stars",
+      "comments",
+    ];
     const testId = "MenuItemReviewTable";
 
     expectedHeaders.forEach((headerText) => {
