@@ -38,5 +38,5 @@ const helpRequestFixtures = {
     },
   ],
 };
-  
+
 export { helpRequestFixtures };
