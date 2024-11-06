@@ -1,34 +1,27 @@
-const organizationFixtures = {
-  oneOrganization: [
+const ucsbOrganizationFixtures = {
+  oneOrg: [
     {
-      id: 1,
-      orgCode: "ZPR",
-      orgTranslationShort: "ZETA PHI RHO",
-      orgTranslation: "ZETA PHI RHO",
-      inactive: false,
-    },
-  ],
-
-  threeOrganization: [
-    {
-      id: 2,
-      orgCode: "SKY",
-      orgTranslationShort: "SKYDIVING CLUB",
-      orgTranslation: "SKYDIVING CLUB AT UCSB",
-      inactive: false,
-    },
-
-    {
-      id: 3,
-      orgCode: "OSLI",
+      orgField: "OSLI",
       orgTranslationShort: "STUDENT LIFE",
       orgTranslation: "OFFICE OF STUDENT LIFE",
       inactive: false,
     },
-
+  ],
+  threeOrgs: [
     {
-      id: 4,
-      orgCode: "KRC",
+      orgField: "SKY",
+      orgTranslationShort: "SKYDIVING CLUB",
+      orgTranslation: "SKYDIVING CLUB AT UCSB",
+      inactive: false,
+    },
+    {
+      orgField: "ZPR",
+      orgTranslationShort: "ZETA PHI RHO",
+      orgTranslation: "ZETA PHI RHO",
+      inactive: false,
+    },
+    {
+      orgField: "KRC",
       orgTranslationShort: "KOREAN RADIO CL",
       orgTranslation: "KOREAN RADIO CLUB",
       inactive: false,
@@ -36,4 +29,4 @@ const organizationFixtures = {
   ],
 };
 
-export { organizationFixtures };
+export { ucsbOrganizationFixtures };
