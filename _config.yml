@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-f24/team02-f24-05
 owner: ucsb-cs156-f24
 repo_name: team02-f24-05
-pull_requests: [{"author":{"id":"U_kgDOB1P9DQ","is_bot":false,"login":"bgggggh","name":""},"headRefName":"bg-MenuItemReview-copyCRUD","number":62,"title":"copyed entity, repository, controller, and controllerTest files for M…","url":"https://github.com/ucsb-cs156-f24/team02-f24-05/pull/62"},{"author":{"id":"MDQ6VXNlcjI5MzkxNjA1","is_bot":false,"login":"17acastelein","name":""},"headRefName":"17acastelein-backend","number":61,"title":"added DCMI backend files from team-01","url":"https://github.com/ucsb-cs156-f24/team02-f24-05/pull/61"}]
+pull_requests: [{"author":{"id":"MDQ6VXNlcjI5MzkxNjA1","is_bot":false,"login":"17acastelein","name":""},"headRefName":"17acastelein-backend","number":61,"title":"added DCMI backend files from team-01","url":"https://github.com/ucsb-cs156-f24/team02-f24-05/pull/61"}]
