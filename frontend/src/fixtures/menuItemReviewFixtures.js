@@ -23,7 +23,7 @@ const menuItemReviewFixtures = {
       comments: "great",
       reviewerEmail: "b@gamil.com",
       dateReviewed: "2022-01-03T12:00:00",
-      },
+    },
     {
       id: 3,
       itemId: 8,
@@ -34,6 +34,5 @@ const menuItemReviewFixtures = {
     },
   ],
 };
-  
+
 export { menuItemReviewFixtures };
-  
