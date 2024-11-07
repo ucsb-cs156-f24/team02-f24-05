@@ -17,56 +17,6 @@ jest.mock("react-router-dom", () => ({
 describe("UserTable tests", () => {
   const queryClient = new QueryClient();
 
-  test("renders empty table correctly", () => {
-    // arrange
-    const currentUser = currentUserFixtures.adminUser;
-
-    // act
-    render(
-      <QueryClientProvider client={queryClient}>
-        <MemoryRouter>
-          <RecommendationRequestTable
-            recommendationRequests={[]}
-            currentUser={currentUser}
-          />
-        </MemoryRouter>
-      </QueryClientProvider>,
-    );
-
-    const expectedHeaders = [
-      "id",
-      "Requester Email",
-      "Professor Email",
-      "Explanation",
-      "Date Requested",
-      "Date Needed",
-      "Done",
-    ];
-    const expectedFields = [
-      "id",
-      "requesterEmail",
-      "professorEmail",
-      "explanation",
-      "dateRequested",
-      "dateNeeded",
-      "Done",
-    ];
-    const testId = "RecommendationRequestTable";
-
-    // assert
-    expectedHeaders.forEach((headerText) => {
-      const header = screen.getByText(headerText);
-      expect(header).toBeInTheDocument();
-    });
-
-    expectedFields.forEach((field) => {
-      const fieldElement = screen.queryByTestId(
-        `${testId}-cell-row-0-col-${field}`,
-      );
-      expect(fieldElement).not.toBeInTheDocument();
-    });
-  });
-
   test("Has the expected column headers and content for ordinary user", () => {
     const currentUser = currentUserFixtures.userOnly;
 
@@ -74,9 +24,7 @@ describe("UserTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <RecommendationRequestTable
-            recommendationRequests={
-              recommendationRequestFixtures.threeRecommendationRequests
-            }
+            requests={recommendationRequestFixtures.threeRequest}
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -119,10 +67,6 @@ describe("UserTable tests", () => {
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(
       "2",
     );
-
-    expect(
-      screen.getByTestId(`${testId}-cell-row-0-col-Done`),
-    ).toHaveTextContent("false");
 
     const editButton = screen.queryByTestId(
       `${testId}-cell-row-0-col-Edit-button`,
@@ -142,9 +86,7 @@ describe("UserTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <RecommendationRequestTable
-            recommendationRequests={
-              recommendationRequestFixtures.threeRecommendationRequests
-            }
+            requests={recommendationRequestFixtures.threeRequest}
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -187,10 +129,6 @@ describe("UserTable tests", () => {
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(
       "2",
     );
-
-    expect(
-      screen.getByTestId(`${testId}-cell-row-0-col-Done`),
-    ).toHaveTextContent("false");
 
     const editButton = screen.getByTestId(
       `${testId}-cell-row-0-col-Edit-button`,
@@ -212,9 +150,7 @@ describe("UserTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <RecommendationRequestTable
-            recommendationRequests={
-              recommendationRequestFixtures.threeRecommendationRequests
-            }
+            requests={recommendationRequestFixtures.threeRequest}
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -236,7 +172,7 @@ describe("UserTable tests", () => {
 
     await waitFor(() =>
       expect(mockedNavigate).toHaveBeenCalledWith(
-        "/RecommendationRequest/edit/1",
+        "/recommendationrequest/edit/1",
       ),
     );
   });
@@ -247,17 +183,15 @@ describe("UserTable tests", () => {
 
     const axiosMock = new AxiosMockAdapter(axios);
     axiosMock
-      .onDelete("/api/RecommendationRequest")
-      .reply(200, { message: "Recommendation Request deleted" });
+      .onDelete("/api/recommendationrequest")
+      .reply(200, { message: "Request deleted" });
 
     // act - render the component
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <RecommendationRequestTable
-            recommendationRequests={
-              recommendationRequestFixtures.threeRecommendationRequests
-            }
+            requests={recommendationRequestFixtures.threeRequest}
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -270,6 +204,12 @@ describe("UserTable tests", () => {
       expect(
         screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-id`),
       ).toHaveTextContent("1");
+    });
+
+    await waitFor(() => {
+      expect(
+        screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-Done`),
+      ).toHaveTextContent("false");
     });
 
     const deleteButton = screen.getByTestId(

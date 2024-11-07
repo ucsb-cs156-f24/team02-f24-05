@@ -42,7 +42,7 @@ describe("RecommendationRequestUtils", () => {
 
       // assert
       expect(result).toEqual({
-        url: "/api/RecommendationRequest",
+        url: "/api/recommendationrequest",
         method: "DELETE",
         params: { id: 17 },
       });
