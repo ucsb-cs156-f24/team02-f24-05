@@ -5,7 +5,7 @@ import { useBackendMutation } from "main/utils/useBackend";
 import {
   cellToAxiosParamsDelete,
   onDeleteSuccess,
-} from "main/utils/UCSBDateUtils";
+} from "main/utils/articleUtils";
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
@@ -36,23 +36,23 @@ export default function ArticlesTable({ articles, currentUser }) {
       accessor: "id", // accessor is the "key" in the data
     },
     {
-      Header: "Title",
+      Header: "title",
       accessor: "title",
     },
     {
-      Header: "Url",
+      Header: "url",
       accessor: "url",
     },
     {
-      Header: "Explanation",
+      Header: "explanation",
       accessor: "explanation",
     },
     {
-      Header: "Email",
+      Header: "email",
       accessor: "email",
     },
     {
-      Header: "DateAdded",
+      Header: "dateAdded",
       accessor: "dateAdded",
     },
   ];

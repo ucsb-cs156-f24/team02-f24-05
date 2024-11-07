@@ -33,11 +33,11 @@ describe("UserTable tests", () => {
 
     const expectedHeaders = [
       "id",
-      "Title",
-      "Url",
-      "Explanation",
-      "Email",
-      "DateAdded",
+      "title",
+      "url",
+      "explanation",
+      "email",
+      "dateAdded",
     ];
     const expectedFields = [
       "id",
@@ -93,11 +93,11 @@ describe("UserTable tests", () => {
 
     const expectedHeaders = [
       "id",
-      "Title",
-      "Url",
-      "Explanation",
-      "Email",
-      "DateAdded",
+      "title",
+      "url",
+      "explanation",
+      "email",
+      "dateAdded",
     ];
     const expectedFields = [
       "id",
