@@ -70,7 +70,9 @@ function HelpRequestForm({
         </Col>
         <Col>
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="requestTime">Request Time (in UTC)</Form.Label>
+            <Form.Label htmlFor="requestTime">
+              Request Time (in ISO format)
+            </Form.Label>
             <Form.Control
               data-testid="HelpRequestForm-requestTime"
               id="requestTime"
@@ -128,7 +130,9 @@ function HelpRequestForm({
         </Col>
         <Col>
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="tableOrBreakoutRoom">Table or Breakout Room</Form.Label>
+            <Form.Label htmlFor="tableOrBreakoutRoom">
+              Table or Breakout Room
+            </Form.Label>
             <Form.Control
               data-testid="HelpRequestForm-tableOrBreakoutRoom"
               id="tableOrBreakoutRoom"
@@ -146,8 +150,7 @@ function HelpRequestForm({
               value="true"
               type="radio"
               isInvalid={Boolean(errors.solved)}
-              {...register("solved", {
-              })}
+              {...register("solved", {})}
             />
             <Form.Check
               data-testid="HelpRequestForm-solved-false"
@@ -156,8 +159,7 @@ function HelpRequestForm({
               value="false"
               type="radio"
               isInvalid={Boolean(errors.solved)}
-              {...register("solved", {
-              })}
+              {...register("solved", {})}
             />
           </Form.Group>
         </Col>

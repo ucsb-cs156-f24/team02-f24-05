@@ -39,7 +39,9 @@ describe("HelpRequestForm tests", () => {
       </Router>,
     );
     await screen.findByTestId("HelpRequestForm-requesterEmail");
-    const requesterEmailField = screen.getByTestId("HelpRequestForm-requesterEmail");
+    const requesterEmailField = screen.getByTestId(
+      "HelpRequestForm-requesterEmail",
+    );
     const requestTimeField = screen.getByTestId("HelpRequestForm-requestTime");
     const submitButton = screen.getByTestId("HelpRequestForm-submit");
 
@@ -77,7 +79,9 @@ describe("HelpRequestForm tests", () => {
     );
     await screen.findByTestId("HelpRequestForm-requesterEmail");
 
-    const requesterEmailField = screen.getByTestId("HelpRequestForm-requesterEmail");
+    const requesterEmailField = screen.getByTestId(
+      "HelpRequestForm-requesterEmail",
+    );
     const explanationField = screen.getByTestId("HelpRequestForm-explanation");
     const requestTimeField = screen.getByTestId("HelpRequestForm-requestTime");
     const teamIdField = screen.getByTestId("HelpRequestForm-teamId");
@@ -85,7 +89,9 @@ describe("HelpRequestForm tests", () => {
     const solvedFalseField = screen.getByTestId("HelpRequestForm-solved-false");
     const submitButton = screen.getByTestId("HelpRequestForm-submit");
 
-    fireEvent.change(requesterEmailField, { target: { value: "ryanzanone@ucsb.edu" } });
+    fireEvent.change(requesterEmailField, {
+      target: { value: "ryanzanone@ucsb.edu" },
+    });
     fireEvent.change(explanationField, { target: { value: "explanation" } });
     fireEvent.change(teamIdField, { target: { value: "5" } });
     fireEvent.click(solvedTrueField, { target: { value: "true" } });
