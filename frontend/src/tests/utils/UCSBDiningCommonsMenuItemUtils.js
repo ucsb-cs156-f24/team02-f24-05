@@ -1,7 +1,7 @@
 import {
   onDeleteSuccess,
   cellToAxiosParamsDelete,
-} from "main/utils/UCSBDiningCommonsMenuItemUtils";
+} from "main/utils/UCSBDateUtils";
 import mockConsole from "jest-mock-console";
 
 const mockToast = jest.fn();
@@ -14,7 +14,7 @@ jest.mock("react-toastify", () => {
   };
 });
 
-describe("UCSBDiningCommonsMenuItemUtils", () => {
+describe("UCSBDateUtils", () => {
   describe("onDeleteSuccess", () => {
     test("It puts the message on console.log and in a toast", () => {
       // arrange
@@ -42,7 +42,7 @@ describe("UCSBDiningCommonsMenuItemUtils", () => {
 
       // assert
       expect(result).toEqual({
-        url: "/api/ucsbdiningcommonsmenuitems",
+        url: "/api/ucsbdates",
         method: "DELETE",
         params: { id: 17 },
       });
