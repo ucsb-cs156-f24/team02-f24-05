@@ -155,7 +155,7 @@ describe("UCSBDiningCommonsMenuItemIndexPage tests", () => {
       .onGet("/api/ucsbdiningcommonsmenuitem/all")
       .reply(200, ucsbDiningCommonsMenuItemFixtures.threeMenuItems);
     axiosMock
-      .onDelete("/api/diningcommonsmenuitem")
+      .onDelete("/api/ucsbdiningcommonsmenuitem")
       .reply(200, "Menu item with id 1 was deleted");
 
     // act
