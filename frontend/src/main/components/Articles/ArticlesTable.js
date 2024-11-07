@@ -36,23 +36,23 @@ export default function ArticlesTable({ articles, currentUser }) {
       accessor: "id", // accessor is the "key" in the data
     },
     {
-      Header: "title",
+      Header: "Title",
       accessor: "title",
     },
     {
-      Header: "url",
+      Header: "Url",
       accessor: "url",
     },
     {
-      Header: "explanation",
+      Header: "Explanation",
       accessor: "explanation",
     },
     {
-      Header: "email",
+      Header: "Email",
       accessor: "email",
     },
     {
-      Header: "dateAdded",
+      Header: "DateAdded",
       accessor: "dateAdded",
     },
   ];
