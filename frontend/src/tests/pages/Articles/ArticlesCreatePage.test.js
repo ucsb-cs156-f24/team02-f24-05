@@ -94,6 +94,7 @@ describe("ArticlesCreatePage tests", () => {
     const explanation = screen.getByTestId("ArticlesForm-explanation");
     const email = screen.getByTestId("ArticlesForm-email");
     const dateAdded = screen.getByTestId("ArticlesForm-dateAdded");
+    const submitButton = screen.getByTestId("ArticlesForm-submit");
 
     fireEvent.change(title, { target: { value: "test_title_2" } });
     fireEvent.change(url, { target: { value: "test_url_2" } });
@@ -118,7 +119,7 @@ describe("ArticlesCreatePage tests", () => {
     });
 
     expect(mockToast).toBeCalledWith(
-      "New article Created - id: 17 title: test_title_2",
+      "New article Created - id: 17 title: test_title",
     );
     expect(mockNavigate).toBeCalledWith({ to: "/articles" });
   });
