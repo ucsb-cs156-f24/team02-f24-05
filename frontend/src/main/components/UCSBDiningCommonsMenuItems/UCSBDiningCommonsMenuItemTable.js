@@ -49,9 +49,9 @@ export default function UCSBDiningCommonsMenuItemTable({
       accessor: "name",
     },
     {
-        Header: "Station",
-        accessor: "station",
-    }
+      Header: "Station",
+      accessor: "station",
+    },
   ];
 
   if (hasRole(currentUser, "ROLE_ADMIN")) {
@@ -61,7 +61,5 @@ export default function UCSBDiningCommonsMenuItemTable({
     );
   }
 
-  return (
-    <OurTable data={menuItems} columns={columns} testid={testIdPrefix} />
-  );
+  return <OurTable data={menuItems} columns={columns} testid={testIdPrefix} />;
 }
