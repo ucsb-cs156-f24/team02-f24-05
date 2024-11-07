@@ -6,6 +6,7 @@ import {
   cellToAxiosParamsDelete,
   onDeleteSuccess,
 } from "main/utils/RecommendationRequestUtils";
+
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
@@ -16,34 +17,32 @@ export default function RecommendationRequestTable({
   const navigate = useNavigate();
 
   const editCallback = (cell) => {
-    navigate(`/RecommendationRequest/edit/${cell.row.values.id}`);
+    navigate(`/recommendationrequest/edit/${cell.row.values.id}`);
   };
 
-  // Stryker disable all : hard to test for query caching
-
+  // Stryker disable all
   const deleteMutation = useBackendMutation(
     cellToAxiosParamsDelete,
     { onSuccess: onDeleteSuccess },
-    ["/api/RecommendationRequest/all"],
+    ["/api/recommendationrequest/all"],
   );
   // Stryker restore all
 
-  // Stryker disable next-line all : TODO try to make a good test for this
+  // Stryker disable next-line all
   const deleteCallback = async (cell) => {
     deleteMutation.mutate(cell);
   };
-
   const columns = [
     {
       Header: "id",
       accessor: "id", // accessor is the "key" in the data
     },
     {
-      Header: "Requester Email",
+      Header: "Requester's Email",
       accessor: "requesterEmail",
     },
     {
-      Header: "Professor Email",
+      Header: "Professor's Email",
       accessor: "professorEmail",
     },
     {
@@ -51,7 +50,7 @@ export default function RecommendationRequestTable({
       accessor: "explanation",
     },
     {
-      Header: "Date Requested",
+      Header: "Request Date",
       accessor: "dateRequested",
     },
     {
@@ -60,8 +59,10 @@ export default function RecommendationRequestTable({
     },
     {
       Header: "Done",
-      accessor: (recommendationRequest) =>
-        recommendationRequest.done.toString(),
+      accessor: "done",
+      // Stryker disable all
+      Cell: ({ value }) => (value ? "True" : "False"),
+      // Stryker restore all
     },
   ];
 

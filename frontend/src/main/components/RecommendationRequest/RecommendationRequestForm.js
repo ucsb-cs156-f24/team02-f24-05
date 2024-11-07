@@ -17,16 +17,11 @@ function RecommendationRequestForm({
 
   const navigate = useNavigate();
 
-  // For explanation, see: https://stackoverflow.com/questions/3143070/javascript-regex-iso-datetime
-  // Note that even this complex regex may still need some tweaks
-
   // Stryker disable Regex
   const isodate_regex =
     /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
-  // Stryker restore Regex
 
-  // Stryker disable next-line all
-  // const yyyyq_regex = /((19)|(20))\d{2}[1-4]/i; // Accepts from 1900-2099 followed by 1-4.  Close enough.
+  // Stryker restore Regex
 
   return (
     <Form onSubmit={handleSubmit(submitAction)}>
@@ -46,19 +41,17 @@ function RecommendationRequestForm({
             </Form.Group>
           </Col>
         )}
-      </Row>
 
-      <Row>
         <Col>
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="requesterEmail">Requester Email</Form.Label>
+            <Form.Label htmlFor="requesterEmail">Requester's Email</Form.Label>
             <Form.Control
               data-testid="RecommendationRequestForm-requesterEmail"
               id="requesterEmail"
-              type="email"
+              type="text"
               isInvalid={Boolean(errors.requesterEmail)}
               {...register("requesterEmail", {
-                required: "Requester Email is required.",
+                required: "Requester's Email is required",
               })}
             />
             <Form.Control.Feedback type="invalid">
@@ -67,18 +60,17 @@ function RecommendationRequestForm({
           </Form.Group>
         </Col>
       </Row>
-
       <Row>
         <Col>
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="professorEmail">Professor Email</Form.Label>
+            <Form.Label htmlFor="professorEmail">Professor's Email</Form.Label>
             <Form.Control
               data-testid="RecommendationRequestForm-professorEmail"
               id="professorEmail"
-              type="email"
+              type="text"
               isInvalid={Boolean(errors.professorEmail)}
               {...register("professorEmail", {
-                required: "Professor Email is required.",
+                required: "Professor's Email is required",
               })}
             />
             <Form.Control.Feedback type="invalid">
@@ -87,7 +79,6 @@ function RecommendationRequestForm({
           </Form.Group>
         </Col>
       </Row>
-
       <Row>
         <Col>
           <Form.Group className="mb-3">
@@ -98,7 +89,7 @@ function RecommendationRequestForm({
               type="text"
               isInvalid={Boolean(errors.explanation)}
               {...register("explanation", {
-                required: "Explanation is required.",
+                required: "Explanation is required",
               })}
             />
             <Form.Control.Feedback type="invalid">
@@ -107,12 +98,11 @@ function RecommendationRequestForm({
           </Form.Group>
         </Col>
       </Row>
-
       <Row>
         <Col>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="dateRequested">
-              Date Requested (iso format)
+              Request Date (iso format)
             </Form.Label>
             <Form.Control
               data-testid="RecommendationRequestForm-dateRequested"
@@ -125,11 +115,10 @@ function RecommendationRequestForm({
               })}
             />
             <Form.Control.Feedback type="invalid">
-              {errors.dateRequested && "Date Requested is required. "}
+              {errors.dateRequested && "Request Date is required"}
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
-
         <Col>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="dateNeeded">
@@ -146,31 +135,31 @@ function RecommendationRequestForm({
               })}
             />
             <Form.Control.Feedback type="invalid">
-              {errors.dateNeeded && "Date Needed is required. "}
+              {errors.dateNeeded && "Date Needed is required"}
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
       </Row>
-
       <Row>
         <Col>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="done">Done</Form.Label>
-            <Form.Select
+            <Form.Control
               data-testid="RecommendationRequestForm-done"
               id="done"
+              as="select"
+              isInvalid={Boolean(errors.done)}
               {...register("done")}
             >
-              <option value="true">True</option>
               <option value="false">False</option>
-            </Form.Select>
+              <option value="true">True</option>
+            </Form.Control>
             <Form.Control.Feedback type="invalid">
               {errors.done?.message}
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
       </Row>
-
       <Row>
         <Col>
           <Button type="submit" data-testid="RecommendationRequestForm-submit">
