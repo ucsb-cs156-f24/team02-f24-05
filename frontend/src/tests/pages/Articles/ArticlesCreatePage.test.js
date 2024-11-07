@@ -56,9 +56,7 @@ describe("ArticlesCreatePage tests", () => {
     );
 
     await waitFor(() => {
-      expect(
-        screen.getByTestId("ArticlesForm-title"),
-      ).toBeInTheDocument();
+      expect(screen.getByTestId("ArticlesForm-title")).toBeInTheDocument();
     });
   });
 
@@ -70,7 +68,7 @@ describe("ArticlesCreatePage tests", () => {
       email: "test_email",
       explanation: "test_explanation",
       url: "test_url",
-      dateAdded: "2024-11-05T10:10:10"
+      dateAdded: "2024-11-05T10:10:10",
     };
 
     axiosMock.onPost("/api/articles/post").reply(202, article);
@@ -84,9 +82,7 @@ describe("ArticlesCreatePage tests", () => {
     );
 
     await waitFor(() => {
-      expect(
-        screen.getByTestId("ArticlesForm-title"),
-      ).toBeInTheDocument();
+      expect(screen.getByTestId("ArticlesForm-title")).toBeInTheDocument();
     });
 
     const title = screen.getByTestId("ArticlesForm-title");
@@ -115,7 +111,7 @@ describe("ArticlesCreatePage tests", () => {
       title: "test_title_2",
       url: "test_url_2",
       email: "test_email_2",
-      explanation: "test_explanation_2"
+      explanation: "test_explanation_2",
     });
 
     expect(mockToast).toBeCalledWith(

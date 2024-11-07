@@ -11,9 +11,9 @@ export default function ArticlesCreatePage({ storybook = false }) {
     params: {
       title: article.title,
       url: article.url,
-      explanation: article.explanation, 
+      explanation: article.explanation,
       email: article.email,
-      dateAdded: article.dateAdded
+      dateAdded: article.dateAdded,
     },
   });
 
