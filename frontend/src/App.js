@@ -155,6 +155,7 @@ function App() {
               path="/diningcommonsmenuitem/create"
               element={<UCSBDiningCommonsMenuItemCreatePage />}
             />
+          </>
         )}
         {hasRole(currentUser, "ROLE_USER") && (
           <>
