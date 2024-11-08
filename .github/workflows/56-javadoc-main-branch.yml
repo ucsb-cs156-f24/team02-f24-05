@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths:
-      - 'src/**'
-      - 'pom.xml'
+      - "src/**"
+      - "pom.xml"
 
 env:
   GH_TOKEN: ${{ github.token }}
@@ -16,7 +16,7 @@ permissions:
   pages: write
   id-token: write
 
-jobs: 
+jobs:
   build-javadoc-main:
     name: Build Javadoc (main branch)
     runs-on: ubuntu-latest
