@@ -90,15 +90,21 @@ describe("HelpRequestCreatePage tests", () => {
       ).toBeInTheDocument();
     });
 
-    const requesterEmailField = screen.getByTestId("HelpRequestForm-requesterEmail");
+    const requesterEmailField = screen.getByTestId(
+      "HelpRequestForm-requesterEmail",
+    );
     const teamIdField = screen.getByTestId("HelpRequestForm-teamId");
-    const tableOrBreakoutRoomField = screen.getByTestId("HelpRequestForm-tableOrBreakoutRoom");
+    const tableOrBreakoutRoomField = screen.getByTestId(
+      "HelpRequestForm-tableOrBreakoutRoom",
+    );
     const solvedField = screen.getByTestId("HelpRequestForm-solved-true");
     const explanationField = screen.getByTestId("HelpRequestForm-explanation");
     const requestTimeField = screen.getByTestId("HelpRequestForm-requestTime");
     const submitButton = screen.getByTestId("HelpRequestForm-submit");
 
-    fireEvent.change(requesterEmailField, { target: { value: "ryanzanone@ucsb.edu" } });
+    fireEvent.change(requesterEmailField, {
+      target: { value: "ryanzanone@ucsb.edu" },
+    });
     fireEvent.change(teamIdField, { target: { value: "5" } });
     fireEvent.change(tableOrBreakoutRoomField, { target: { value: "5" } });
     fireEvent.click(solvedField, { target: { value: "true" } });

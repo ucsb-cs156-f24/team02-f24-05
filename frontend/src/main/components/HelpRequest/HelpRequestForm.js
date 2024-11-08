@@ -131,7 +131,9 @@ function HelpRequestForm({
 
         <Col>
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="tableOrBreakoutRoom">Table or Breakout Room</Form.Label>
+            <Form.Label htmlFor="tableOrBreakoutRoom">
+              Table or Breakout Room
+            </Form.Label>
             <Form.Control
               data-testid="HelpRequestForm-tableOrBreakoutRoom"
               id="tableOrBreakoutRoom"
@@ -142,7 +144,8 @@ function HelpRequestForm({
               })}
             />
             <Form.Control.Feedback type="invalid">
-              {errors.tableOrBreakoutRoom && "Table or Breakout Room is required. "}
+              {errors.tableOrBreakoutRoom &&
+                "Table or Breakout Room is required. "}
             </Form.Control.Feedback>
           </Form.Group>
         </Col>

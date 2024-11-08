@@ -19,7 +19,9 @@ export default function HelpRequestCreatePage({ storybook = false }) {
   });
 
   const onSuccess = (helpRequest) => {
-    toast(`New HelpRequest Created - id: ${helpRequest.id} email: ${helpRequest.requesterEmail}`);
+    toast(
+      `New HelpRequest Created - id: ${helpRequest.id} email: ${helpRequest.requesterEmail}`,
+    );
   };
 
   const mutation = useBackendMutation(

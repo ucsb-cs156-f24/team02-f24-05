@@ -85,7 +85,9 @@ describe("HelpRequestForm tests", () => {
     const explanationField = screen.getByTestId("HelpRequestForm-explanation");
     const requestTimeField = screen.getByTestId("HelpRequestForm-requestTime");
     const teamIdField = screen.getByTestId("HelpRequestForm-teamId");
-    const tableOrBreakoutRoomField = screen.getByTestId("HelpRequestForm-tableOrBreakoutRoom");
+    const tableOrBreakoutRoomField = screen.getByTestId(
+      "HelpRequestForm-tableOrBreakoutRoom",
+    );
     const solvedTrueField = screen.getByTestId("HelpRequestForm-solved-true");
     const solvedFalseField = screen.getByTestId("HelpRequestForm-solved-false");
     const submitButton = screen.getByTestId("HelpRequestForm-submit");
@@ -95,7 +97,7 @@ describe("HelpRequestForm tests", () => {
     });
     fireEvent.change(explanationField, { target: { value: "explanation" } });
     fireEvent.change(teamIdField, { target: { value: "5" } });
-    fireEvent.change(tableOrBreakoutRoomField, {target : { value: "true" }});
+    fireEvent.change(tableOrBreakoutRoomField, { target: { value: "true" } });
     fireEvent.click(solvedTrueField, { target: { value: "true" } });
     fireEvent.click(solvedFalseField, { target: { value: "false" } });
     fireEvent.change(requestTimeField, {
