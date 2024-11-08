@@ -9,11 +9,14 @@ import {
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
-export default function RecommendationRequestTable({ requests, currentUser }) {
+export default function RecommendationRequestTable({
+  recommendationRequests,
+  currentUser,
+}) {
   const navigate = useNavigate();
 
   const editCallback = (cell) => {
-    navigate(`/recommendationrequest/edit/${cell.row.values.id}`);
+    navigate(`/RecommendationRequest/edit/${cell.row.values.id}`);
   };
 
   // Stryker disable all : hard to test for query caching
@@ -83,7 +86,7 @@ export default function RecommendationRequestTable({ requests, currentUser }) {
 
   return (
     <OurTable
-      data={requests}
+      data={recommendationRequests}
       columns={columns}
       testid={"RecommendationRequestTable"}
     />

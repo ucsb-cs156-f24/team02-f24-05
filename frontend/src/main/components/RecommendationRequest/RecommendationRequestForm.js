@@ -25,6 +25,9 @@ function RecommendationRequestForm({
     /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
   // Stryker restore Regex
 
+  // Stryker disable next-line all
+  // const yyyyq_regex = /((19)|(20))\d{2}[1-4]/i; // Accepts from 1900-2099 followed by 1-4.  Close enough.
+
   return (
     <Form onSubmit={handleSubmit(submitAction)}>
       <Row>
@@ -43,7 +46,9 @@ function RecommendationRequestForm({
             </Form.Group>
           </Col>
         )}
+      </Row>
 
+      <Row>
         <Col>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="requesterEmail">Requester Email</Form.Label>
@@ -61,6 +66,9 @@ function RecommendationRequestForm({
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
+      </Row>
+
+      <Row>
         <Col>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="professorEmail">Professor Email</Form.Label>
@@ -117,7 +125,7 @@ function RecommendationRequestForm({
               })}
             />
             <Form.Control.Feedback type="invalid">
-              {errors.dateRequested && "Date Requested is required."}
+              {errors.dateRequested && "Date Requested is required. "}
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
@@ -138,7 +146,7 @@ function RecommendationRequestForm({
               })}
             />
             <Form.Control.Feedback type="invalid">
-              {errors.dateNeeded && "Date Needed is required."}
+              {errors.dateNeeded && "Date Needed is required. "}
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
@@ -151,13 +159,14 @@ function RecommendationRequestForm({
             <Form.Select
               data-testid="RecommendationRequestForm-done"
               id="done"
-              type="string"
-              isInvalid={Boolean(errors.done)}
               {...register("done")}
             >
-              <option value="false">False</option>
               <option value="true">True</option>
+              <option value="false">False</option>
             </Form.Select>
+            <Form.Control.Feedback type="invalid">
+              {errors.done?.message}
+            </Form.Control.Feedback>
           </Form.Group>
         </Col>
       </Row>
