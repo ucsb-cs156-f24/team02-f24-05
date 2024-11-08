@@ -92,7 +92,6 @@ describe("HelpRequestForm tests", () => {
       "HelpRequestForm-tableOrBreakoutRoom",
     );
     const solvedTrueField = screen.getByTestId("HelpRequestForm-solved-true");
-    const solvedFalseField = screen.getByTestId("HelpRequestForm-solved-false");
     const submitButton = screen.getByTestId("HelpRequestForm-submit");
 
     fireEvent.change(requesterEmailField, {
