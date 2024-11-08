@@ -128,6 +128,7 @@ function HelpRequestForm({
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
+
         <Col>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="tableOrBreakoutRoom">
@@ -137,9 +138,18 @@ function HelpRequestForm({
               data-testid="HelpRequestForm-tableOrBreakoutRoom"
               id="tableOrBreakoutRoom"
               type="text"
+              isInvalid={Boolean(errors.tableOrBreakoutRoom)}
+              {...register("tableOrBreakoutRoom", {
+                required: true,
+              })}
             />
+            <Form.Control.Feedback type="invalid">
+              {errors.tableOrBreakoutRoom &&
+                "Table or Breakout Room is required. "}
+            </Form.Control.Feedback>
           </Form.Group>
         </Col>
+
         <Col>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="solved">Solved</Form.Label>
@@ -148,18 +158,14 @@ function HelpRequestForm({
               id="solved-true"
               label="Yes"
               value="true"
-              type="radio"
-              isInvalid={Boolean(errors.solved)}
-              {...register("solved", {})}
+              type="checkbox"
             />
             <Form.Check
               data-testid="HelpRequestForm-solved-false"
               id="solved-false"
               label="No"
               value="false"
-              type="radio"
-              isInvalid={Boolean(errors.solved)}
-              {...register("solved", {})}
+              type="checkbox"
             />
           </Form.Group>
         </Col>

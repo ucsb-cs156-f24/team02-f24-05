@@ -67,6 +67,9 @@ describe("HelpRequestForm tests", () => {
     expect(screen.getByText(/Request Time is required./)).toBeInTheDocument();
     expect(screen.getByText(/Explanation is required./)).toBeInTheDocument();
     expect(screen.getByText(/Team ID is required./)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Table or Breakout Room is required./),
+    ).toBeInTheDocument();
   });
 
   test("No Error messsages on good input", async () => {
@@ -85,8 +88,10 @@ describe("HelpRequestForm tests", () => {
     const explanationField = screen.getByTestId("HelpRequestForm-explanation");
     const requestTimeField = screen.getByTestId("HelpRequestForm-requestTime");
     const teamIdField = screen.getByTestId("HelpRequestForm-teamId");
+    const tableOrBreakoutRoomField = screen.getByTestId(
+      "HelpRequestForm-tableOrBreakoutRoom",
+    );
     const solvedTrueField = screen.getByTestId("HelpRequestForm-solved-true");
-    const solvedFalseField = screen.getByTestId("HelpRequestForm-solved-false");
     const submitButton = screen.getByTestId("HelpRequestForm-submit");
 
     fireEvent.change(requesterEmailField, {
@@ -94,8 +99,8 @@ describe("HelpRequestForm tests", () => {
     });
     fireEvent.change(explanationField, { target: { value: "explanation" } });
     fireEvent.change(teamIdField, { target: { value: "5" } });
+    fireEvent.change(tableOrBreakoutRoomField, { target: { value: "true" } });
     fireEvent.click(solvedTrueField, { target: { value: "true" } });
-    fireEvent.click(solvedFalseField, { target: { value: "false" } });
     fireEvent.change(requestTimeField, {
       target: { value: "2022-01-02T12:00" },
     });
