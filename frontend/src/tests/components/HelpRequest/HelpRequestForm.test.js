@@ -67,7 +67,9 @@ describe("HelpRequestForm tests", () => {
     expect(screen.getByText(/Request Time is required./)).toBeInTheDocument();
     expect(screen.getByText(/Explanation is required./)).toBeInTheDocument();
     expect(screen.getByText(/Team ID is required./)).toBeInTheDocument();
-    expect(screen.getByText(/Table or Breakout Room is required./)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Table or Breakout Room is required./),
+    ).toBeInTheDocument();
   });
 
   test("No Error messsages on good input", async () => {
