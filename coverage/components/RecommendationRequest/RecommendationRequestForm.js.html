@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/HelpRequest/HelpRequestForm.js</title>
+    <title>Code coverage report for components/RecommendationRequest/RecommendationRequestForm.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/HelpRequest</a> HelpRequestForm.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/RecommendationRequest</a> RecommendationRequestForm.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>15/15</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -249,7 +249,13 @@
 <a name='L184'></a><a href='#L184'>184</a>
 <a name='L185'></a><a href='#L185'>185</a>
 <a name='L186'></a><a href='#L186'>186</a>
-<a name='L187'></a><a href='#L187'>187</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L187'></a><a href='#L187'>187</a>
+<a name='L188'></a><a href='#L188'>188</a>
+<a name='L189'></a><a href='#L189'>189</a>
+<a name='L190'></a><a href='#L190'>190</a>
+<a name='L191'></a><a href='#L191'>191</a>
+<a name='L192'></a><a href='#L192'>192</a>
+<a name='L193'></a><a href='#L193'>193</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -278,9 +284,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -439,7 +451,7 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 &nbsp;
-function HelpRequestForm({
+function RecommendationRequestForm({
   initialContents,
   submitAction,
   buttonLabel = "Create",
@@ -463,8 +475,7 @@ function HelpRequestForm({
   // Stryker restore Regex
 &nbsp;
   // Stryker disable next-line all
-&nbsp;
-  const email_regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // Accepts the form of _@_._
+  // const yyyyq_regex = /((19)|(20))\d{2}[1-4]/i; // Accepts from 1900-2099 followed by 1-4.  Close enough.
 &nbsp;
   return (
     &lt;Form onSubmit={handleSubmit(submitAction)}&gt;
@@ -474,7 +485,7 @@ function HelpRequestForm({
             &lt;Form.Group className="mb-3"&gt;
               &lt;Form.Label htmlFor="id"&gt;Id&lt;/Form.Label&gt;
               &lt;Form.Control
-                data-testid="HelpRequestForm-id"
+                data-testid="RecommendationRequestForm-id"
                 id="id"
                 type="text"
                 {...register("id")}
@@ -484,44 +495,43 @@ function HelpRequestForm({
             &lt;/Form.Group&gt;
           &lt;/Col&gt;
         )}
+      &lt;/Row&gt;
 &nbsp;
+      &lt;Row&gt;
         &lt;Col&gt;
           &lt;Form.Group className="mb-3"&gt;
             &lt;Form.Label htmlFor="requesterEmail"&gt;Requester Email&lt;/Form.Label&gt;
             &lt;Form.Control
-              data-testid="HelpRequestForm-requesterEmail"
+              data-testid="RecommendationRequestForm-requesterEmail"
               id="requesterEmail"
-              type="text"
+              type="email"
               isInvalid={Boolean(errors.requesterEmail)}
               {...register("requesterEmail", {
-                required: true,
-                pattern: email_regex,
+                required: "Requester Email is required.",
               })}
             /&gt;
             &lt;Form.Control.Feedback type="invalid"&gt;
-              {errors.requesterEmail &amp;&amp; "Requester Email is required. "}
-              {errors.requesterEmail?.type === "pattern" &amp;&amp;
-                "Please enter a valid email address. "}
+              {errors.requesterEmail?.message}
             &lt;/Form.Control.Feedback&gt;
           &lt;/Form.Group&gt;
         &lt;/Col&gt;
+      &lt;/Row&gt;
+&nbsp;
+      &lt;Row&gt;
         &lt;Col&gt;
           &lt;Form.Group className="mb-3"&gt;
-            &lt;Form.Label htmlFor="requestTime"&gt;
-              Request Time (in ISO format)
-            &lt;/Form.Label&gt;
+            &lt;Form.Label htmlFor="professorEmail"&gt;Professor Email&lt;/Form.Label&gt;
             &lt;Form.Control
-              data-testid="HelpRequestForm-requestTime"
-              id="requestTime"
-              type="datetime-local"
-              isInvalid={Boolean(errors.requestTime)}
-              {...register("requestTime", {
-                required: true,
-                pattern: isodate_regex,
+              data-testid="RecommendationRequestForm-professorEmail"
+              id="professorEmail"
+              type="email"
+              isInvalid={Boolean(errors.professorEmail)}
+              {...register("professorEmail", {
+                required: "Professor Email is required.",
               })}
             /&gt;
             &lt;Form.Control.Feedback type="invalid"&gt;
-              {errors.requestTime &amp;&amp; "Request Time is required. "}
+              {errors.professorEmail?.message}
             &lt;/Form.Control.Feedback&gt;
           &lt;/Form.Group&gt;
         &lt;/Col&gt;
@@ -532,16 +542,16 @@ function HelpRequestForm({
           &lt;Form.Group className="mb-3"&gt;
             &lt;Form.Label htmlFor="explanation"&gt;Explanation&lt;/Form.Label&gt;
             &lt;Form.Control
-              data-testid="HelpRequestForm-explanation"
+              data-testid="RecommendationRequestForm-explanation"
               id="explanation"
               type="text"
               isInvalid={Boolean(errors.explanation)}
               {...register("explanation", {
-                required: true,
+                required: "Explanation is required.",
               })}
             /&gt;
             &lt;Form.Control.Feedback type="invalid"&gt;
-              {errors.explanation &amp;&amp; "Explanation is required. "}
+              {errors.explanation?.message}
             &lt;/Form.Control.Feedback&gt;
           &lt;/Form.Group&gt;
         &lt;/Col&gt;
@@ -550,67 +560,75 @@ function HelpRequestForm({
       &lt;Row&gt;
         &lt;Col&gt;
           &lt;Form.Group className="mb-3"&gt;
-            &lt;Form.Label htmlFor="teamId"&gt;Team ID&lt;/Form.Label&gt;
-            &lt;Form.Control
-              data-testid="HelpRequestForm-teamId"
-              id="teamId"
-              type="text"
-              isInvalid={Boolean(errors.teamId)}
-              {...register("teamId", {
-                required: true,
-              })}
-            /&gt;
-            &lt;Form.Control.Feedback type="invalid"&gt;
-              {errors.teamId &amp;&amp; "Team ID is required. "}
-            &lt;/Form.Control.Feedback&gt;
-          &lt;/Form.Group&gt;
-        &lt;/Col&gt;
-        &lt;Col&gt;
-          &lt;Form.Group className="mb-3"&gt;
-            &lt;Form.Label htmlFor="tableOrBreakoutRoom"&gt;
-              Table or Breakout Room
+            &lt;Form.Label htmlFor="dateRequested"&gt;
+              Date Requested (iso format)
             &lt;/Form.Label&gt;
             &lt;Form.Control
-              data-testid="HelpRequestForm-tableOrBreakoutRoom"
-              id="tableOrBreakoutRoom"
-              type="text"
+              data-testid="RecommendationRequestForm-dateRequested"
+              id="dateRequested"
+              type="datetime-local"
+              isInvalid={Boolean(errors.dateRequested)}
+              {...register("dateRequested", {
+                required: true,
+                pattern: isodate_regex,
+              })}
             /&gt;
+            &lt;Form.Control.Feedback type="invalid"&gt;
+              {errors.dateRequested &amp;&amp; "Date Requested is required. "}
+            &lt;/Form.Control.Feedback&gt;
           &lt;/Form.Group&gt;
         &lt;/Col&gt;
+&nbsp;
         &lt;Col&gt;
           &lt;Form.Group className="mb-3"&gt;
-            &lt;Form.Label htmlFor="solved"&gt;Solved&lt;/Form.Label&gt;
-            &lt;Form.Check
-              data-testid="HelpRequestForm-solved-true"
-              id="solved-true"
-              label="Yes"
-              value="true"
-              type="radio"
-              isInvalid={Boolean(errors.solved)}
-              {...register("solved", {})}
+            &lt;Form.Label htmlFor="dateNeeded"&gt;
+              Date Needed (iso format)
+            &lt;/Form.Label&gt;
+            &lt;Form.Control
+              data-testid="RecommendationRequestForm-dateNeeded"
+              id="dateNeeded"
+              type="datetime-local"
+              isInvalid={Boolean(errors.dateNeeded)}
+              {...register("dateNeeded", {
+                required: true,
+                pattern: isodate_regex,
+              })}
             /&gt;
-            &lt;Form.Check
-              data-testid="HelpRequestForm-solved-false"
-              id="solved-false"
-              label="No"
-              value="false"
-              type="radio"
-              isInvalid={Boolean(errors.solved)}
-              {...register("solved", {})}
-            /&gt;
+            &lt;Form.Control.Feedback type="invalid"&gt;
+              {errors.dateNeeded &amp;&amp; "Date Needed is required. "}
+            &lt;/Form.Control.Feedback&gt;
           &lt;/Form.Group&gt;
         &lt;/Col&gt;
       &lt;/Row&gt;
 &nbsp;
       &lt;Row&gt;
         &lt;Col&gt;
-          &lt;Button type="submit" data-testid="HelpRequestForm-submit"&gt;
+          &lt;Form.Group className="mb-3"&gt;
+            &lt;Form.Label htmlFor="done"&gt;Done&lt;/Form.Label&gt;
+            &lt;Form.Select
+              data-testid="RecommendationRequestForm-done"
+              id="done"
+              {...register("done")}
+            &gt;
+              &lt;option value="true"&gt;True&lt;/option&gt;
+              &lt;option value="false"&gt;False&lt;/option&gt;
+            &lt;/Form.Select&gt;
+            &lt;Form.Control.Feedback type="invalid"&gt;
+              {errors.done?.message}
+            &lt;/Form.Control.Feedback&gt;
+          &lt;/Form.Group&gt;
+        &lt;/Col&gt;
+      &lt;/Row&gt;
+&nbsp;
+      &lt;Row&gt;
+        &lt;Col&gt;
+          &lt;Button type="submit" data-testid="RecommendationRequestForm-submit"&gt;
             {buttonLabel}
           &lt;/Button&gt;
           &lt;Button
             variant="Secondary"
             onClick={() =&gt; navigate(-1)}
-            data-testid="HelpRequestForm-cancel"
+            data-testid="RecommendationRequestForm-cancel"
           &gt;
             Cancel
           &lt;/Button&gt;
@@ -620,7 +638,7 @@ function HelpRequestForm({
   );
 }
 &nbsp;
-export default HelpRequestForm;
+export default RecommendationRequestForm;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
