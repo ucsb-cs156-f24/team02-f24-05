@@ -158,22 +158,14 @@ function HelpRequestForm({
               id="solved-true"
               label="Yes"
               value="true"
-              type="radio"
-              isInvalid={Boolean(errors.solved)}
-              {...register("solved", {
-                required: true,
-              })}
+              type="checkbox"
             />
             <Form.Check
               data-testid="HelpRequestForm-solved-false"
               id="solved-false"
               label="No"
               value="false"
-              type="radio"
-              isInvalid={Boolean(errors.solved)}
-              {...register("solved", {
-                required: true,
-              })}
+              type="checkbox"
             />
           </Form.Group>
         </Col>

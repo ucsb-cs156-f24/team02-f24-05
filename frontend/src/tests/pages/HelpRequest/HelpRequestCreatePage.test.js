@@ -123,7 +123,6 @@ describe("HelpRequestCreatePage tests", () => {
       requesterEmail: "ryanzanone@ucsb.edu",
       teamId: "5",
       tableOrBreakoutRoom: "5",
-      solved: "true",
       explanation: "explanation",
       requestTime: "2022-02-02T00:00",
     });
