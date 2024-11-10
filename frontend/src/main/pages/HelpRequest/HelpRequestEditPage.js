@@ -42,14 +42,16 @@ export default function HelpRequestEditPage({ storybook = false }) {
   });
 
   const onSuccess = (helpRequest) => {
-    toast(`UCSBDate Updated - id: ${ucsbDate.id} name: ${ucsbDate.name}`);
+    toast(
+      `HelpRequest Updated - id: ${helpRequest.id} email: ${helpRequest.requesterEmail}`,
+    );
   };
 
   const mutation = useBackendMutation(
     objectToAxiosPutParams,
     { onSuccess },
     // Stryker disable next-line all : hard to set up test for caching
-    [`/api/ucsbdates?id=${id}`],
+    [`/api/helprequest?id=${id}`],
   );
 
   const { isSuccess } = mutation;
@@ -59,16 +61,16 @@ export default function HelpRequestEditPage({ storybook = false }) {
   };
 
   if (isSuccess && !storybook) {
-    return <Navigate to="/ucsbdates" />;
+    return <Navigate to="/helprequest" />;
   }
 
   return (
     <BasicLayout>
       <div className="pt-2">
-        <h1>Edit UCSBDate</h1>
-        {ucsbDate && (
-          <UCSBDateForm
-            initialContents={ucsbDate}
+        <h1>Edit Help Request</h1>
+        {helpRequest && (
+          <HelpRequestForm
+            initialContents={helpRequest}
             submitAction={onSubmit}
             buttonLabel="Update"
           />

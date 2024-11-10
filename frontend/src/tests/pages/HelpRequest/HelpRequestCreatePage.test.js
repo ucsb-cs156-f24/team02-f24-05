@@ -69,9 +69,9 @@ describe("HelpRequestCreatePage tests", () => {
       requesterEmail: "ryanzanone@ucsb.edu",
       teamId: "5",
       tableOrBreakoutRoom: "5",
-      solved: "true",
       explanation: "explanation",
       requestTime: "2022-02-02T00:00",
+      solved: "true",
     };
 
     axiosMock.onPost("/api/helprequest/post").reply(202, helpRequest);
@@ -125,6 +125,7 @@ describe("HelpRequestCreatePage tests", () => {
       tableOrBreakoutRoom: "5",
       explanation: "explanation",
       requestTime: "2022-02-02T00:00",
+      solved: true,
     });
 
     expect(mockToast).toBeCalledWith(

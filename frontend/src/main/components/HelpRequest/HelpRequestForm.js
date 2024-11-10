@@ -30,7 +30,15 @@ function HelpRequestForm({
   const email_regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // Accepts the form of _@_._
 
   return (
-    <Form onSubmit={handleSubmit(submitAction)}>
+    <Form
+      onSubmit={handleSubmit((data) => {
+        const modifiedData = {
+          ...data,
+          solved: data.solved === "true",
+        };
+        submitAction(modifiedData);
+      })}
+    >
       <Row>
         {initialContents && (
           <Col>
@@ -158,15 +166,28 @@ function HelpRequestForm({
               id="solved-true"
               label="Yes"
               value="true"
-              type="checkbox"
+              type="radio"
+              name="solved"
+              isInvalid={Boolean(errors.solved)}
+              {...register("solved", {
+                required: true,
+              })}
             />
             <Form.Check
               data-testid="HelpRequestForm-solved-false"
               id="solved-false"
               label="No"
               value="false"
-              type="checkbox"
+              type="radio"
+              name="solved"
+              isInvalid={Boolean(errors.solved)}
+              {...register("solved", {
+                required: true,
+              })}
             />
+            <Form.Control.Feedback type="invalid">
+              {errors.solved && "Please select one of these. "}
+            </Form.Control.Feedback>
           </Form.Group>
         </Col>
       </Row>
