@@ -45,7 +45,7 @@ describe("UCSBOrganizationUtils", () => {
 
       // assert
       expect(result).toEqual({
-        url: "/api/ucsborganizations",
+        url: "/api/organizations",
         method: "DELETE",
         params: { orgField: "SKY" },
       });
