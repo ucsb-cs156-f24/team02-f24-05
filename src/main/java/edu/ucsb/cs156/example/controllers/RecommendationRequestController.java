@@ -99,6 +99,7 @@ public class RecommendationRequestController extends ApiController{
         // See: https://www.baeldung.com/spring-date-parameters
 
         log.info("localDateTime={}", dateRequested);
+        log.info("dateNeeded={}", dateNeeded);
 
         RecommendationRequest recommendationRequest = new RecommendationRequest();
         recommendationRequest.setRequesterEmail(requesterEmail);
