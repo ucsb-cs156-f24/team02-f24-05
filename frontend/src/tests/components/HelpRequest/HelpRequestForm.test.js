@@ -91,7 +91,7 @@ describe("HelpRequestForm tests", () => {
     const tableOrBreakoutRoomField = screen.getByTestId(
       "HelpRequestForm-tableOrBreakoutRoom",
     );
-    const solvedTrueField = screen.getByTestId("HelpRequestForm-solved-true");
+    const solvedField = screen.getByTestId("HelpRequestForm-solved");
     const submitButton = screen.getByTestId("HelpRequestForm-submit");
 
     fireEvent.change(requesterEmailField, {
@@ -100,13 +100,17 @@ describe("HelpRequestForm tests", () => {
     fireEvent.change(explanationField, { target: { value: "explanation" } });
     fireEvent.change(teamIdField, { target: { value: "5" } });
     fireEvent.change(tableOrBreakoutRoomField, { target: { value: "true" } });
-    fireEvent.click(solvedTrueField, { target: { value: "true" } });
+    fireEvent.change(solvedField, { target: { value: "true" } });
     fireEvent.change(requestTimeField, {
       target: { value: "2022-01-02T12:00" },
     });
     fireEvent.click(submitButton);
 
     await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
+
+    expect(mockSubmitAction).toHaveBeenCalledWith(
+      expect.objectContaining({ solved: true }),
+    );
 
     expect(
       screen.queryByText(/Please enter a valid email address./),
