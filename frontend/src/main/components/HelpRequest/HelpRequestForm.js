@@ -161,33 +161,20 @@ function HelpRequestForm({
         <Col>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="solved">Solved</Form.Label>
-            <Form.Check
-              data-testid="HelpRequestForm-solved-true"
-              id="solved-true"
-              label="Yes"
-              value="true"
-              type="radio"
+            <Form.Select
+              data-testid="HelpRequestForm-solved"
+              id="solved"
               name="solved"
+              required
               isInvalid={Boolean(errors.solved)}
               {...register("solved", {
                 required: true,
               })}
-            />
-            <Form.Check
-              data-testid="HelpRequestForm-solved-false"
-              id="solved-false"
-              label="No"
-              value="false"
-              type="radio"
-              name="solved"
-              isInvalid={Boolean(errors.solved)}
-              {...register("solved", {
-                required: true,
-              })}
-            />
-            <Form.Control.Feedback type="invalid">
-              {errors.solved && "Please select one of these. "}
-            </Form.Control.Feedback>
+            >
+              <option value="">Select...</option>
+              <option value="false">No</option>
+              <option value="true">Yes</option>
+            </Form.Select>
           </Form.Group>
         </Col>
       </Row>

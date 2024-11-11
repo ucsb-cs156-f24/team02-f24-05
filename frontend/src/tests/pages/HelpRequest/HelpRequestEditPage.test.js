@@ -135,7 +135,7 @@ describe("HelpRequestEditPage tests", () => {
       const tableOrBreakoutRoomField = screen.getByTestId(
         "HelpRequestForm-tableOrBreakoutRoom",
       );
-      const solvedTrueField = screen.getByTestId("HelpRequestForm-solved-true");
+      const solvedField = screen.getByTestId("HelpRequestForm-solved");
       const explanationField = screen.getByTestId(
         "HelpRequestForm-explanation",
       );
@@ -149,7 +149,7 @@ describe("HelpRequestEditPage tests", () => {
       expect(teamIdField).toHaveValue("5");
       expect(requestTimeField).toHaveValue("2022-02-02T00:00");
       expect(tableOrBreakoutRoomField).toHaveValue("5");
-      expect(solvedTrueField).toBeChecked();
+      expect(solvedField).toHaveValue("true");
       expect(explanationField).toHaveValue("explanation");
       expect(submitButton).toBeInTheDocument();
     });
@@ -173,7 +173,7 @@ describe("HelpRequestEditPage tests", () => {
       const tableOrBreakoutRoomField = screen.getByTestId(
         "HelpRequestForm-tableOrBreakoutRoom",
       );
-      const solvedTrueField = screen.getByTestId("HelpRequestForm-solved-true");
+      const solvedField = screen.getByTestId("HelpRequestForm-solved");
       const explanationField = screen.getByTestId(
         "HelpRequestForm-explanation",
       );
@@ -187,7 +187,7 @@ describe("HelpRequestEditPage tests", () => {
       expect(teamIdField).toHaveValue("5");
       expect(requestTimeField).toHaveValue("2022-02-02T00:00");
       expect(tableOrBreakoutRoomField).toHaveValue("5");
-      expect(solvedTrueField).toBeChecked();
+      expect(solvedField).toHaveValue("true");
       expect(explanationField).toHaveValue("explanation");
       expect(submitButton).toBeInTheDocument();
 
@@ -199,7 +199,7 @@ describe("HelpRequestEditPage tests", () => {
       fireEvent.change(requestTimeField, {
         target: { value: "2024-02-02T00:00" },
       });
-      fireEvent.change(solvedTrueField, { target: { value: "true" } });
+      fireEvent.change(solvedField, { target: { value: "false" } });
 
       fireEvent.click(submitButton);
 
@@ -218,7 +218,7 @@ describe("HelpRequestEditPage tests", () => {
           requestTime: "2024-02-02T00:00",
           tableOrBreakoutRoom: "6",
           explanation: "explanation",
-          solved: true,
+          solved: false,
         }),
       ); // posted object
     });

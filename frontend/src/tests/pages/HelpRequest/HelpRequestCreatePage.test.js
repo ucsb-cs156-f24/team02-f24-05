@@ -97,7 +97,7 @@ describe("HelpRequestCreatePage tests", () => {
     const tableOrBreakoutRoomField = screen.getByTestId(
       "HelpRequestForm-tableOrBreakoutRoom",
     );
-    const solvedField = screen.getByTestId("HelpRequestForm-solved-true");
+    const solvedField = screen.getByTestId("HelpRequestForm-solved");
     const explanationField = screen.getByTestId("HelpRequestForm-explanation");
     const requestTimeField = screen.getByTestId("HelpRequestForm-requestTime");
     const submitButton = screen.getByTestId("HelpRequestForm-submit");
@@ -107,7 +107,7 @@ describe("HelpRequestCreatePage tests", () => {
     });
     fireEvent.change(teamIdField, { target: { value: "5" } });
     fireEvent.change(tableOrBreakoutRoomField, { target: { value: "5" } });
-    fireEvent.click(solvedField, { target: { value: "true" } });
+    fireEvent.change(solvedField, { target: { value: "true" } });
     fireEvent.change(explanationField, { target: { value: "explanation" } });
     fireEvent.change(requestTimeField, {
       target: { value: "2022-02-02T00:00" },
