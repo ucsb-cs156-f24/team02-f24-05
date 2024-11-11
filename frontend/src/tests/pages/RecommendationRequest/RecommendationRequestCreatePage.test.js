@@ -148,4 +148,4 @@ describe("RecommendationRequestCreatePage tests", () => {
     expect(mockNavigate).toBeCalledWith({ to: "/recommendationrequest" });
   });
 });
-s;
+
