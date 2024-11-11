@@ -166,10 +166,7 @@ function HelpRequestForm({
               id="solved"
               name="solved"
               required
-              isInvalid={Boolean(errors.solved)}
-              {...register("solved", {
-                required: true,
-              })}
+              {...register("solved", {})}
             >
               <option value="">Select...</option>
               <option value="false">No</option>
