@@ -120,12 +120,12 @@ public class UCSBOrganizationIT {
 
                 // act
                 MvcResult response = mockMvc.perform(
-                                delete("/api/ucsborganizations?orgField=WARRIORS")
+                                delete("/api/ucsborganizations?orgField=DUBS")
                                                 .with(csrf()))
                                 .andExpect(status().isNotFound()).andReturn();
 
                 // assert
                 String responseString = mapper.readTree(response.getResponse().getContentAsString()).get("message").toString();
-			    assertEquals("\"UCSBOrganization with id WARRIORS not found\"", responseString);
+			    assertEquals("\"UCSBOrganization with id DUBS not found\"", responseString);
         }
 }
