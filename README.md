@@ -30,10 +30,6 @@ after completing your own.
 
 # Brief overview of starter code
 
-TODO: remove this header and content of this section before submitting.
-However leave the section `# Overview of application` and its content
-intact.
-
 The starter code here starts with a base similar to `team02`, but with
 some extra frontend code on top of the of backend CRUD operations
 that were present in `team02`.
