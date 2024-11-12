@@ -14,7 +14,7 @@ jest.mock("react-router-dom", () => ({
   useNavigate: () => mockedNavigate,
 }));
 
-describe("UserTable tests", () => {
+describe("HelpRequestTable tests", () => {
   const queryClient = new QueryClient();
 
   test("Has the expected column headers and content for ordinary user", () => {
@@ -216,5 +216,33 @@ describe("UserTable tests", () => {
 
     await waitFor(() => expect(axiosMock.history.delete.length).toBe(1));
     expect(axiosMock.history.delete[0].params).toEqual({ id: 1 });
+  });
+
+  test("displays 'N/A' for missing solved value", () => {
+    const currentUser = currentUserFixtures.adminUser;
+
+    const requestsWithMissingSolved = [
+      { id: 1, requesterEmail: "user1@example.com", solved: undefined },
+      { id: 2, requesterEmail: "user2@example.com", solved: null },
+    ];
+
+    render(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <HelpRequestTable
+            requests={requestsWithMissingSolved}
+            currentUser={currentUser}
+          />
+        </MemoryRouter>
+      </QueryClientProvider>,
+    );
+
+    // Check for "N/A" when solved is missing
+    expect(
+      screen.getByTestId("HelpRequestTable-cell-row-0-col-solved"),
+    ).toHaveTextContent("N/A");
+    expect(
+      screen.getByTestId("HelpRequestTable-cell-row-1-col-solved"),
+    ).toHaveTextContent("N/A");
   });
 });
