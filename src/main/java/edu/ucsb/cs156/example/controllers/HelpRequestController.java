@@ -3,7 +3,6 @@ package edu.ucsb.cs156.example.controllers;
 import edu.ucsb.cs156.example.entities.HelpRequest;
 import edu.ucsb.cs156.example.errors.EntityNotFoundException;
 import edu.ucsb.cs156.example.repositories.HelpRequestRepository;
-import edu.ucsb.cs156.example.repositories.UCSBDateRepository;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -122,7 +121,7 @@ public class HelpRequestController extends ApiController {
     @Operation(summary= "Delete a HelpRequest")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("")
-    public Object deleteUCSBDate(
+    public Object deleteHelpRequest(
             @Parameter(name="id") @RequestParam Long id) {
         HelpRequest helpRequest = helpRequestRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(HelpRequest.class, id));
