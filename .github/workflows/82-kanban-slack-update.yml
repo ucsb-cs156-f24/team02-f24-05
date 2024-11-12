@@ -5,8 +5,8 @@ name: "82-kanban-slack-update.yml"
 
 on:
   schedule:
-    - cron: "0 17 * * *"  # Run at 9:00 AM PST / 5:00 PM UTC
-  workflow_dispatch:  # Allows manual triggering
+    - cron: "0 17 * * *" # Run at 9:00 AM PST / 5:00 PM UTC
+  workflow_dispatch: # Allows manual triggering
 
 env:
   PAT: ${{ secrets.PAT }}
@@ -14,10 +14,9 @@ env:
   TEAM: ${{ github.repository }}
   ORG_NAME: ${{ github.repository_owner }}
   COLUMNS: "Todo, In Progress, In Review, Done"
-  END_DATE: "2024-11-13"  # Set the end date for the workflow
+  END_DATE: "2024-11-13" # Set the end date for the workflow
 
 jobs:
-
   # This job checks if the current date is before the END_DATE
   check_date:
     name: Check Date
@@ -48,13 +47,13 @@ jobs:
             echo "Contents of $GITHUB_OUTPUT:"
             cat "$GITHUB_OUTPUT"
           fi
-        
+
   # This job extracts the team name from the repository name
   # The team name is used to find the project ID for the team
   # It does this by extracting the last 6 characters of the repository name
   # Then sets the team name as an output for the next job
   get_team_name:
-    name: Get Team Name 
+    name: Get Team Name
     runs-on: ubuntu-latest
     needs: check_date
     if: needs.check_date.outputs.continue == 'true'
@@ -67,7 +66,7 @@ jobs:
           REPO=${{ github.repository }}
           TEAM_NAME="${REPO: -6}"
           echo "team=${TEAM_NAME}" >> "$GITHUB_OUTPUT"
-          
+
   # This job finds the project ID for the team based on the team name
   # It finds the last updated project that contains the team name in the title
   # Then sets the project ID as an output for the next job
@@ -112,21 +111,21 @@ jobs:
           $body = @{ query = $query } | ConvertTo-Json
           $response = Invoke-WebRequest -Uri "https://api.github.com/graphql" -Method Post -Headers $headers -Body $body
           Write-Host "Projects JSON Output: $($response.Content)"
-          
+
           $projectID = ($response.Content | ConvertFrom-Json).data.organization.projectsV2.nodes | Where-Object { $_.title -like "*${{ needs.get_team_name.outputs.team }}*" } | Select-Object -First 1 -ExpandProperty id
-          
+
           if (-not $projectID) {
               Write-Host "No project found for team ${{ needs.get_team_name.outputs.team }}."
               exit 1
           }
-          
+
           Write-Host "Found Project ID: $projectID"
           echo "project_id=$projectID"
           echo $projectID >> project_id.txt
           ls project_id.txt
           cat project_id.txt
           pwd
-       
+
       - name: Output GraphQL Query Result
         id: output_query
         shell: pwsh
@@ -256,8 +255,6 @@ jobs:
           path: issue_counts.json
           overwrite: true
 
-
-
   # This job generates an ASCII table from the issue counts
   # It does this by parsing the issue counts JSON and formatting it into an ASCII table
   # Then sets the ASCII table as an output for the next job
@@ -363,7 +360,6 @@ jobs:
           name: ascii_table
           path: ascii_table.txt
           overwrite: true
-
 
   send-to-slack:
     name: Send Report to Slack
