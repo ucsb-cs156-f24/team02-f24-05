@@ -1,0 +1,23 @@
+title: Documentation
+description: >- # this means to ignore newlines until "baseurl:"
+  When reviewing a PR for this repo, you can see what the documentation,
+  e.g. the storybook, will look like when published for the branches
+  named above.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+
+collections:
+  branches:
+    output: true
+    permalink: /branches/:path/
+
+repo_name: "TBD"
+repo: ucsb-cs156-f24/team02-f24-05
+owner: ucsb-cs156-f24
+repo_name: team02-f24-05
+pull_requests: [{"author":{"id":"U_kgDOB1QJQw","is_bot":false,"login":"RyanZanone","name":""},"headRefName":"ryanzanone-team03","number":126,"title":"Added Integration Tests for HelpRequest","url":"https://github.com/ucsb-cs156-f24/team02-f24-05/pull/126"},{"author":{"id":"U_kgDOB1P9DQ","is_bot":false,"login":"bgggggh","name":""},"headRefName":"bg-MenuItemReview-test","number":121,"title":"Integration Tests for MenuItemReview","url":"https://github.com/ucsb-cs156-f24/team02-f24-05/pull/121"},{"author":{"id":"MDQ6VXNlcjI1MjgzOTIx","is_bot":false,"login":"ishanjainofficial","name":"Ishan Jain"},"headRefName":"ishanjain-placeholder","number":86,"title":"ishanjain organizations placeholder","url":"https://github.com/ucsb-cs156-f24/team02-f24-05/pull/86"}]
