@@ -254,7 +254,6 @@ function App() {
             />
           </>
         )}
-        
       </Routes>
     </BrowserRouter>
   );
