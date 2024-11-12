@@ -1,17 +1,48 @@
-import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
+import React from "react";
+import { useBackend } from "main/utils/useBackend";
 
-export default function RecommendatoinRequestIndexPage() {
-  // Stryker disable all : placeholder for future implementation
+import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
+import { Button } from "react-bootstrap";
+import { useCurrentUser, hasRole } from "main/utils/currentUser";
+import RecommendationRequestTable from "main/components/RecommendationRequest/RecommendationRequestTable";
+
+export default function RecommendationRequestIndexPage() {
+  const currentUser = useCurrentUser();
+
+  const createButton = () => {
+    if (hasRole(currentUser, "ROLE_ADMIN")) {
+      return (
+        <Button
+          variant="primary"
+          href="/recommendationrequest/create"
+          style={{ float: "right" }}
+        >
+          Create Recommendation Request
+        </Button>
+      );
+    }
+  };
+
+  const {
+    data: recommendationRequests,
+    error: _error,
+    status: _status,
+  } = useBackend(
+    // Stryker disable next-line all : don't test internal caching of React Query
+    ["/api/recommendationrequest/all"],
+    { method: "GET", url: "/api/recommendationrequest/all" },
+    [],
+  );
+
   return (
     <BasicLayout>
       <div className="pt-2">
-        <h1>Index page not yet implemented</h1>
-        <p>
-          <a href="/placeholder/create">Create</a>
-        </p>
-        <p>
-          <a href="/placeholder/edit/1">Edit</a>
-        </p>
+        {createButton()}
+        <h1>Recommendation Requests</h1>
+        <RecommendationRequestTable
+          recommendationRequests={recommendationRequests}
+          currentUser={currentUser}
+        />
       </div>
     </BasicLayout>
   );
