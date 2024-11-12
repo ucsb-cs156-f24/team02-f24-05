@@ -2,8 +2,8 @@
   "databaseChangeLog": [
     {
       "changeSet": {
-        "id": "Articles-1",
-        "author": "basperheim1",
+        "id": "HelpRequest-1",
+        "author": "ryanzanone",
         "preConditions": [
           {
             "onFail": "MARK_RAN"
@@ -12,7 +12,7 @@
             "not": [
               {
                 "tableExists": {
-                  "tableName": "ARTICLES"
+                  "tableName": "helprequest"
                 }
               }
             ]
@@ -27,7 +27,7 @@
                     "autoIncrement": true,
                     "constraints": {
                       "primaryKey": true,
-                      "primaryKeyName": "ARTICLES_PK"
+                      "primaryKeyName": "HELPREQUEST_PK"
                     },
                     "name": "ID",
                     "type": "BIGINT"
@@ -35,13 +35,25 @@
                 },
                 {
                   "column": {
-                    "name": "TITLE",
+                    "name": "REQUEST_TIME",
+                    "type": "TIMESTAMP"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "REQUESTER_EMAIL",
                     "type": "VARCHAR(255)"
                   }
                 },
                 {
                   "column": {
-                    "name": "URL",
+                    "name": "TEAM_ID",
+                    "type": "VARCHAR(255)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "TABLE_OR_BREAKOUT_ROOM",
                     "type": "VARCHAR(255)"
                   }
                 },
@@ -53,18 +65,12 @@
                 },
                 {
                   "column": {
-                    "name": "EMAIL",
-                    "type": "VARCHAR(255)"
-                  }
-                },
-                {
-                  "column": {
-                    "name": "DATE_ADDED",
-                    "type": "TIMESTAMP"
+                    "name": "SOLVED",
+                    "type": "BOOLEAN"
                   }
                 }
               ],
-              "tableName": "ARTICLES"
+              "tableName": "helprequest"
             }
           }
         ]
