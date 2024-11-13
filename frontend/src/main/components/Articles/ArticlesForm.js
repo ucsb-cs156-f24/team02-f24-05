@@ -68,7 +68,7 @@ function ArticlesForm({
             <Form.Control
               data-testid="ArticlesForm-url"
               id="url"
-              type="text"
+              type="url"
               isInvalid={Boolean(errors.url)}
               {...register("url", {
                 required: "URL is required.",
@@ -106,7 +106,7 @@ function ArticlesForm({
             <Form.Control
               data-testid="ArticlesForm-email"
               id="email"
-              type="text"
+              type="email"
               isInvalid={Boolean(errors.email)}
               {...register("email", {
                 required: "Email is required. ",
