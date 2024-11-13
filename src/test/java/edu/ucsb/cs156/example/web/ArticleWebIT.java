@@ -26,27 +26,27 @@ public class ArticleWebIT extends WebTestCase {
         page.getByText("Create Article").click();
         assertThat(page.getByText("Create New Article")).isVisible();
         page.getByTestId("ArticlesForm-title").fill("test_title");
-        page.getByTestId("ArticlesForm-url").fill("test_url");
-        page.getByTestId("ArticlesForm-email").fill("test_email");
-        page.getByTestId("ArticlesForm-dateAdded").fill("2022-01-03T00:00:01");
+        page.getByTestId("ArticlesForm-url").fill("https://test_url.com");
+        page.getByTestId("ArticlesForm-email").fill("email@gmail.com");
+        page.getByTestId("ArticlesForm-dateAdded").fill("2022-01-03T00:00");
         page.getByTestId("ArticlesForm-explanation").fill("test_explanation");
 
         page.getByTestId("ArticlesForm-submit").click();
 
 
-        assertThat(page.getByTestId("ArticlesTable-cell-row-0-col-email"))
-                .hasText("test_email");
+        assertThat(page.getByTestId("ArticlesTable-cell-row-0-col-title"))
+                .hasText("test_title");
 
         page.getByTestId("ArticlesTable-cell-row-0-col-Edit-button").click();
         assertThat(page.getByText("Edit Article")).isVisible();
-        page.getByTestId("ArticlesForm-email").fill("test_email_2");
+        page.getByTestId("ArticlesForm-url").fill("https://google.com");
         page.getByTestId("ArticlesForm-submit").click();
 
-        assertThat(page.getByTestId("ArticlesTable-cell-row-0-col-email")).hasText("test_email_2");
+        assertThat(page.getByTestId("ArticlesTable-cell-row-0-col-url")).hasText("https://google.com");
 
         page.getByTestId("ArticlesTable-cell-row-0-col-Delete-button").click();
 
-        assertThat(page.getByTestId("ArticlesTable-cell-row-0-col-url")).not().isVisible();
+        assertThat(page.getByTestId("ArticlesTable-cell-row-1-col-explanation")).not().isVisible();
     }
 
     @Test
@@ -56,6 +56,6 @@ public class ArticleWebIT extends WebTestCase {
         page.getByText("Article").click();
 
         assertThat(page.getByText("Create Article")).not().isVisible();
-        assertThat(page.getByTestId("ArticlesTable-cell-row-0-col-name")).not().isVisible();
+        assertThat(page.getByTestId("ArticlesTable-cell-row-0-col-title")).not().isVisible();
     }
 }
