@@ -20,4 +20,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-f24/team02-f24-05
 owner: ucsb-cs156-f24
 repo_name: team02-f24-05
-pull_requests: [{"author":{"id":"MDQ6VXNlcjczOTIyMDEz","is_bot":false,"login":"basperheim1","name":""},"headRefName":"newChanges","number":146,"title":"Fixed bugs with end-to-end tests","url":"https://github.com/ucsb-cs156-f24/team02-f24-05/pull/146"},{"author":{"id":"MDQ6VXNlcjcxNzI5MTQy","is_bot":false,"login":"Bruhwilliam","name":"William Lau"},"headRefName":"bruhwilliam-team03-end2end","number":144,"title":"added end to end test","url":"https://github.com/ucsb-cs156-f24/team02-f24-05/pull/144"}]
+pull_requests: [{"author":{"id":"MDQ6VXNlcjcxNzI5MTQy","is_bot":false,"login":"Bruhwilliam","name":"William Lau"},"headRefName":"bruhwilliam-team03-end2end","number":144,"title":"added end to end test","url":"https://github.com/ucsb-cs156-f24/team02-f24-05/pull/144"}]
