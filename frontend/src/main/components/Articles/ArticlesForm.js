@@ -79,7 +79,9 @@ function ArticlesForm({
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
+      </Row>
 
+      <Row>
         <Col>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="explanation">Explanation</Form.Label>
@@ -122,7 +124,7 @@ function ArticlesForm({
             <Form.Control
               data-testid="ArticlesForm-dateAdded"
               id="dateAdded"
-              type="text"
+              type="datetime-local"
               isInvalid={Boolean(errors.dateAdded)}
               {...register("dateAdded", {
                 required: true,
