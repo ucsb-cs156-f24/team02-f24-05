@@ -20,4 +20,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-f24/team02-f24-05
 owner: ucsb-cs156-f24
 repo_name: team02-f24-05
-pull_requests: [{"author":{"id":"MDQ6VXNlcjI5MzkxNjA1","is_bot":false,"login":"17acastelein","name":""},"headRefName":"dcmi-e2e","number":137,"title":"added e2e test for dcmi","url":"https://github.com/ucsb-cs156-f24/team02-f24-05/pull/137"}]
+pull_requests: []
