@@ -34,7 +34,7 @@ ThreeItemsAdminUser.args = {
 
 ThreeItemsAdminUser.parameters = {
   msw: [
-    http.delete("/api/menuItemReview", () => {
+    http.delete("/api/menu_item_review", () => {
       return HttpResponse.json({}, { status: 200 });
     }),
   ],
